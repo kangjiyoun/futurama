@@ -14,7 +14,7 @@ const ProgramEpisodes: NextPage = () => {
 
   return (
     <div>
-      <main>
+      <PageTit>{name}</PageTit>
       {data.map((episodesData: Episodes)=>{
           const {number, title, desc}= episodesData;
           return (
@@ -24,13 +24,16 @@ const ProgramEpisodes: NextPage = () => {
             </EpiBox>
           )
         })}
-      </main>
     </div>
   )
 }
 
 export default ProgramEpisodes;
 
+const PageTit = styled.h2`
+  margin-bottom: 20px;
+  font-size: 30px;
+`
 
 const EpiBox = styled.article`
 border: 1px solid #ddd;

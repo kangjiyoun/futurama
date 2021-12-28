@@ -14,6 +14,7 @@ const ProgramQuestions: NextPage = () => {
 
   return (
     <div>
+      <PageTit>{name}</PageTit>
       {data.map((questionData: Question)=>{
           const {id, question, correctAnswer, possibleAnswers}= questionData;
           return (
@@ -38,7 +39,10 @@ const ProgramQuestions: NextPage = () => {
 
 export default ProgramQuestions;
 
-
+const PageTit = styled.h2`
+  margin-bottom: 20px;
+  font-size: 30px;
+`
 const QuestionTxt = styled.strong`
   display: block;
   padding: 8px 15px;

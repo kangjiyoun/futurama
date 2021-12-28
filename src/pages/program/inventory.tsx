@@ -14,7 +14,7 @@ const ProgramInventory: NextPage = () => {
 
   return (
     <div>
-      <main>
+      <PageTit>{name}</PageTit>
       {data.map((inventoryData: Inventory)=>{
           const {title, category, description, price, stock}= inventoryData;
           return (
@@ -25,13 +25,16 @@ const ProgramInventory: NextPage = () => {
             </InvenItem>
           )
         })}
-      </main>
     </div>
   )
 }
 
 export default ProgramInventory;
 
+const PageTit = styled.h2`
+  margin-bottom: 20px;
+  font-size: 30px;
+`
 
 const InvenItem = styled.dl`
 border: 1px solid #ddd;

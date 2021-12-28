@@ -14,6 +14,7 @@ const ProgramCharacters: NextPage = () => {
 
   return (
     <div>
+      <PageTit>{name}</PageTit>
       <CharContainer>
       {data.map((charactersData: Characters)=>{
           const {name, age, sayings, images}= charactersData;
@@ -39,7 +40,10 @@ const ProgramCharacters: NextPage = () => {
 
 export default ProgramCharacters;
 
-
+const PageTit = styled.h2`
+  margin-bottom: 20px;
+  font-size: 30px;
+`
 const CharContainer = styled.ul`
   display: flex;
   flex-wrap: wrap;;

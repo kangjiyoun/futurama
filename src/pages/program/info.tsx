@@ -14,7 +14,7 @@ const ProgramInfo: NextPage = () => {
 
   return (
     <div>
-      <main>
+      <PageTit>{name}</PageTit>
       {data.map((infoData: Info)=>{
           const {synopsis, yearsAired, creators, id}= infoData;
           return (
@@ -35,12 +35,16 @@ const ProgramInfo: NextPage = () => {
             </div>
           )
         })}
-      </main>
     </div>
   )
 }
 
 export default ProgramInfo;
+
+const PageTit = styled.h2`
+  margin-bottom: 20px;
+  font-size: 30px;
+`
 
 const InfoBox = styled.dl`
   margin-bottom: 20px;

@@ -14,6 +14,7 @@ const ProgramCast: NextPage = () => {
 
   return (
     <div>
+      <PageTit>{name}</PageTit>
       <CastList>
       {data.map((castData: Cast)=>{
           const {name, born}= castData;
@@ -30,6 +31,11 @@ const ProgramCast: NextPage = () => {
 }
 
 export default ProgramCast;
+
+const PageTit = styled.h2`
+  margin-bottom: 20px;
+  font-size: 30px;
+`
 
 const CastList = styled.ul`
   display: flex;
