@@ -1,8 +1,8 @@
 import type { NextPage } from "next";
-import { Error } from "../../components/Error";
-import { Loading } from "../../components/Loading";
+import { Error, Loading  } from "../../components";
 import { useInfoData } from "../../hooks/useFuturamaData";
 import {Info} from "../../types/Info";
+import styled from "@emotion/styled"
 
 
 const ProgramInfo: NextPage = () => {
@@ -14,13 +14,24 @@ const ProgramInfo: NextPage = () => {
 
   return (
     <div>
-      <h1>테스트</h1>
       <main>
       {data.map((infoData: Info)=>{
           const {synopsis, yearsAired, creators, id}= infoData;
           return (
-            <div key="">
-              <h1>{synopsis}</h1>
+            <div key={id}>
+              <InfoBox>
+                <InfoTit>synopsis</InfoTit>
+                <dd>{synopsis}</dd>
+              </InfoBox>
+              <InfoBox>
+                <InfoTit>yearsAired</InfoTit>
+                <dd>{yearsAired}</dd>
+              </InfoBox>
+              <InfoBox>
+                <InfoTit>creators(name)</InfoTit>
+                <dd>{creators[0].name}</dd>
+                <dd>{creators[1].name}</dd>
+              </InfoBox>
             </div>
           )
         })}
@@ -30,3 +41,19 @@ const ProgramInfo: NextPage = () => {
 }
 
 export default ProgramInfo;
+
+const InfoBox = styled.dl`
+  margin-bottom: 20px;
+`
+
+const InfoTit = styled.dt`
+  padding: 8px 15px;
+  margin-top: 30px;
+  margin-bottom: 15px;
+  background: #2e79eb;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 17px;
+  font-weight: normal;
+  line-height: 1.4;
+`

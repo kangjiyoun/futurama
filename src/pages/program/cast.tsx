@@ -1,8 +1,8 @@
 import type { NextPage } from "next";
-import { Error } from "../../components/Error";
-import { Loading } from "../../components/Loading";
+import { Error, Loading  } from "../../components";
 import { useInfoData } from "../../hooks/useFuturamaData";
 import {Cast} from "../../types/cast";
+import styled from "@emotion/styled"
 
 
 const ProgramCast: NextPage = () => {
@@ -14,18 +14,42 @@ const ProgramCast: NextPage = () => {
 
   return (
     <div>
-      <main>
+      <CastList>
       {data.map((castData: Cast)=>{
           const {name, born}= castData;
           return (
-            <div key="">
-              <h1>{born}</h1>
-            </div>
+            <CastItem key="">
+              <strong>{name}</strong>
+              <span>{born}</span>
+            </CastItem>
           )
         })}
-      </main>
+      </CastList>
     </div>
   )
 }
 
 export default ProgramCast;
+
+const CastList = styled.ul`
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+`
+
+const CastItem = styled.li`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 23.2%;
+  padding: 10px 0;
+  margin-right: 2.4%;
+  margin-bottom: 20px;
+  border: 1px solid #2e79eb;
+  list-style: none;
+
+  &:nth-child(4n) {
+    margin-right: 0;
+  }
+
+`

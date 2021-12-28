@@ -1,8 +1,8 @@
 import type { NextPage } from "next";
-import { Error } from "../../components/Error";
-import { Loading } from "../../components/Loading";
+import { Error, Loading  } from "../../components";
 import { useInfoData } from "../../hooks/useFuturamaData";
 import { Episodes } from "../../types/episodes";
+import styled from "@emotion/styled"
 
 
 const ProgramEpisodes: NextPage = () => {
@@ -16,11 +16,12 @@ const ProgramEpisodes: NextPage = () => {
     <div>
       <main>
       {data.map((episodesData: Episodes)=>{
-          const {title, writers}= episodesData;
+          const {number, title, desc}= episodesData;
           return (
-            <div key="">
-              <h1>{writers}</h1>
-            </div>
+            <EpiBox key="">
+              <strong>{number} / {title}</strong>
+              <EpiDesc>{desc}</EpiDesc>
+            </EpiBox>
           )
         })}
       </main>
@@ -29,3 +30,18 @@ const ProgramEpisodes: NextPage = () => {
 }
 
 export default ProgramEpisodes;
+
+
+const EpiBox = styled.article`
+border: 1px solid #ddd;
+padding: 20px;
+margin-bottom: 20px;
+color: #2e79eb;
+font-size: 18px;
+`
+
+const EpiDesc = styled.p`
+ padding-top: 10px;
+ color: #666;
+ font-size: 16px;
+`
